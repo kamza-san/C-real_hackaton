@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2227ed4e036997c4684a3742df866c73, type: 3}
+  m_Name: key
+  m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  id: 0
+  image: {fileID: -6247066915208783547, guid: 0d4cd8d037314204495959a292b6a7a6, type: 3}
+  itemName: "\uC5F4\uC1E0"
+  explain: "\uAE30\uCD08\uC801\uC778 \uD615\uD0DC\uC758 \uC5F4\uC1E0\uC774\uB2E4."
