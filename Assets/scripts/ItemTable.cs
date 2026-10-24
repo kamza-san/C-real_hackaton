@@ -4,16 +4,9 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class ItemTable : MonoBehaviour, IInteractable
 {
-    public enum InteractionType
-    {
-        GiveItem,
-        ConsumeItem
-    }
-
-    [Header("Interaction Setting")]
-    [SerializeField] private InteractionType interactionType;
     [SerializeField] private bool ifdestroy = true;
-    [SerializeField] private ItemData itemData;
+    [SerializeField] private ItemData giveItemData;
+    [SerializeField] private ItemData consumeItemData;
 
     public bool isInteracted = false;
 
@@ -22,21 +15,12 @@ public class ItemTable : MonoBehaviour, IInteractable
     public bool CanInteract(PlayerInventory inventory)
     {
         if (isInteracted) return false;
-
-        if (interactionType == InteractionType.GiveItem)
+        if (inventory == null) return false;
+        if (consumeItemData != null)
         {
-            return true;
+            return inventory.items.Contains(consumeItemData);
         }
-        else if (interactionType == InteractionType.ConsumeItem)
-        {
-            if (inventory != null && itemData != null)
-            {
-                return inventory.items.Contains(itemData);
-            }
-            return false;
-        }
-
-        return false;
+        return true;
     }
 
     public void Interact(GameObject player)
@@ -44,43 +28,41 @@ public class ItemTable : MonoBehaviour, IInteractable
         PlayerInventory inventory = player.GetComponent<PlayerInventory>();
         if (inventory == null || !CanInteract(inventory)) return;
 
-        if (interactionType == InteractionType.GiveItem)
+        if (consumeItemData != null)
         {
-            if (itemData != null)
+            if (ItemPopupManager.Instance != null)
             {
-                inventory.AddItem(itemData);
-                isInteracted = true;
-                OnInteracted?.Invoke();
-
-                if (ifdestroy)
-                {
-                    Destroy(gameObject);
-                }
+                ItemPopupManager.Instance.ShowConfirm(
+                    $"{consumeItemData.itemName}을(를) 사용하시겠습니까?", 
+                    () => {
+                        if (inventory.UseItem(consumeItemData))
+                        {
+                            ExecuteInteraction(inventory);
+                        }
+                    }
+                );
             }
         }
-        else if (interactionType == InteractionType.ConsumeItem)
+        else
         {
-            if (itemData != null)
-            {
-                if (ItemPopupManager.Instance != null)
-                {
-                    ItemPopupManager.Instance.ShowConfirm(
-                        $"{itemData.itemName}을(를) 사용하시겠습니까?", 
-                        () => {
-                            if (inventory.UseItem(itemData))
-                            {
-                                isInteracted = true;
-                                OnInteracted?.Invoke();
+            ExecuteInteraction(inventory);
+        }
+    }
 
-                                if (ifdestroy)
-                                {
-                                    Destroy(gameObject);
-                                }
-                            }
-                        }
-                    );
-                }
-            }
+    private void ExecuteInteraction(PlayerInventory inventory)
+    {
+        if (giveItemData != null)
+        {
+            inventory.AddItem(giveItemData);
+        }
+
+        isInteracted = true;
+
+        OnInteracted?.Invoke();
+
+        if (ifdestroy)
+        {
+            Destroy(gameObject);
         }
     }
 }

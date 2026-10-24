@@ -1634,9 +1634,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ca48fa2f29917642aba474e9feed494, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemTable
-  interactionType: 0
   ifdestroy: 0
-  itemData: {fileID: 11400000, guid: 765f8f17b8374fd488402300866454f6, type: 2}
+  giveItemData: {fileID: 11400000, guid: 67c2ecac473a6bc42ad875a104f23526, type: 2}
+  consumeItemData: {fileID: 0}
   isInteracted: 0
 --- !u!61 &696502393
 BoxCollider2D:
@@ -2144,9 +2144,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ca48fa2f29917642aba474e9feed494, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemTable
-  interactionType: 1
   ifdestroy: 1
-  itemData: {fileID: 11400000, guid: 2b14a7bd92b787044b1a3d042a629281, type: 2}
+  giveItemData: {fileID: 0}
+  consumeItemData: {fileID: 11400000, guid: 2b14a7bd92b787044b1a3d042a629281, type: 2}
   isInteracted: 0
 --- !u!61 &787563875
 BoxCollider2D:
@@ -2300,9 +2300,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ca48fa2f29917642aba474e9feed494, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemTable
-  interactionType: 0
   ifdestroy: 0
-  itemData: {fileID: 11400000, guid: 67c2ecac473a6bc42ad875a104f23526, type: 2}
+  giveItemData: {fileID: 11400000, guid: 765f8f17b8374fd488402300866454f6, type: 2}
+  consumeItemData: {fileID: 0}
   isInteracted: 0
 --- !u!61 &931087914
 BoxCollider2D:
@@ -3786,9 +3786,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ca48fa2f29917642aba474e9feed494, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemTable
-  interactionType: 0
   ifdestroy: 0
-  itemData: {fileID: 11400000, guid: 4d70c61041b065e458f52c9ec4bacdb5, type: 2}
+  giveItemData: {fileID: 11400000, guid: 4d70c61041b065e458f52c9ec4bacdb5, type: 2}
+  consumeItemData: {fileID: 0}
   isInteracted: 0
 --- !u!61 &1743793118
 BoxCollider2D:
@@ -4373,9 +4373,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ca48fa2f29917642aba474e9feed494, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemTable
-  interactionType: 0
   ifdestroy: 0
-  itemData: {fileID: 11400000, guid: 2b14a7bd92b787044b1a3d042a629281, type: 2}
+  giveItemData: {fileID: 11400000, guid: 2b14a7bd92b787044b1a3d042a629281, type: 2}
+  consumeItemData: {fileID: 0}
   isInteracted: 0
 --- !u!61 &2045407663
 BoxCollider2D:
