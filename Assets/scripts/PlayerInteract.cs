@@ -3,48 +3,103 @@ using UnityEngine.InputSystem;
 
 public class PlayerInteract : MonoBehaviour
 {
-    public float interactRange = 2f;
-    public LayerMask tableLayer;
+    [SerializeField] private float checkRadius = 2f; 
+    [SerializeField] private LayerMask interactableLayer; 
 
-    private IInteractable nearestInteractable;
+    [SerializeField] private GameObject interactionUI; 
+    [SerializeField] private Vector3 worldOffset = new Vector3(0, 1.2f, 0); 
+
+    private PlayerInventory playerInventory;
+    private ItemTable currentItemTable;
+    private Transform targetTransform;
+
+    private void Awake()
+    {
+        playerInventory = GetComponent<PlayerInventory>();
+    }
+
+    private void Start()
+    {
+        if (interactionUI != null)
+        {
+            interactionUI.SetActive(false);
+        }
+    }
 
     private void Update()
     {
-        FindNearestInteractable();
+        FindClosestInteractable();
+        UpdateUIPosition();
     }
 
-    private void FindNearestInteractable()
+    private void FindClosestInteractable()
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, interactRange, tableLayer);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, checkRadius, interactableLayer);
         
         float minDistance = float.MaxValue;
-        IInteractable closest = null;
-        foreach (Collider2D coll in colliders)
+        ItemTable closestTable = null;
+        Transform closestTransform = null;
+
+        foreach (var col in colliders)
         {
-            IInteractable interactable = coll.GetComponent<IInteractable>();
-            if (interactable != null)
+            ItemTable itemTable = col.GetComponent<ItemTable>();
+            
+            // [수정] 단순 상호작용 여부뿐만 아니라, 아이템 소지 여부까지 포함한 CanInteract 검사
+            if (itemTable != null && itemTable.CanInteract(playerInventory))
             {
-                float distance = Vector2.Distance(transform.position, coll.transform.position);
-                
+                float distance = Vector2.Distance(transform.position, col.transform.position);
                 if (distance < minDistance)
                 {
                     minDistance = distance;
-                    closest = interactable;
+                    closestTable = itemTable;
+                    closestTransform = col.transform;
                 }
             }
         }
-        nearestInteractable = closest;
+
+        currentItemTable = closestTable;
+        targetTransform = closestTransform;
     }
-    public void OnInteract(InputValue value)
+
+    private void UpdateUIPosition()
     {
-        if (value.isPressed && nearestInteractable != null)
+        if (currentItemTable != null && targetTransform != null && interactionUI != null)
         {
-            nearestInteractable.Interact(gameObject);
+            if (!interactionUI.activeSelf)
+            {
+                interactionUI.SetActive(true);
+            }
+
+            Vector3 worldPos = targetTransform.position + worldOffset;
+            Vector3 screenPos = Camera.main.WorldToScreenPoint(worldPos);
+            interactionUI.transform.position = screenPos;
+        }
+        else
+        {
+            if (interactionUI != null && interactionUI.activeSelf)
+            {
+                interactionUI.SetActive(false);
+            }
         }
     }
+
+    public void OnInteract(InputValue value)
+    {
+        if (value.isPressed && currentItemTable != null)
+        {
+            currentItemTable.Interact(gameObject);
+            
+            if (currentItemTable.isInteracted)
+            {
+                currentItemTable = null;
+                if (interactionUI != null) interactionUI.SetActive(false);
+            }
+        }
+    }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, interactRange);
+        Gizmos.DrawWireSphere(transform.position, checkRadius);
     }
 }

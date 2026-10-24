@@ -11,7 +11,6 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     private void Awake()
     {
-        // 슬롯 루트에 Graphic 컴포넌트가 없으면 마우스 Hover 감지가 누락될 수 있으므로 투명 Image 자동 보장
         Image img = GetComponent<Image>();
         if (img == null)
         {

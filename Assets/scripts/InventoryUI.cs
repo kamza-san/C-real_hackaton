@@ -31,7 +31,7 @@ public class InventoryUI : MonoBehaviour
         HideTooltip(); 
     }
 
-    public void RefreshUI()
+public void RefreshUI()
     {
         if (playerInventory == null || slotContainer == null || slotPrefab == null) return;
 
@@ -39,7 +39,7 @@ public class InventoryUI : MonoBehaviour
         {
             Transform child = slotContainer.GetChild(i);
             child.gameObject.SetActive(false);
-            Destroy(child.gameObject);
+            DestroyImmediate(child.gameObject);
         }
 
         foreach (ItemData item in playerInventory.items)
@@ -73,7 +73,6 @@ public class InventoryUI : MonoBehaviour
 
         Vector3 targetPos = slotPosition + tooltipOffset;
 
-        // 화면 밖으로 잘리지 않도록 안전하게 클램핑
         if (tooltipPanel.transform is RectTransform rt)
         {
             float halfWidth = rt.rect.width * 0.5f;
