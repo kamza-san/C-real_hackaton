@@ -33,7 +33,7 @@ public class ItemTable : MonoBehaviour, IInteractable
             if (ItemPopupManager.Instance != null)
             {
                 ItemPopupManager.Instance.ShowConfirm(
-                    $"{consumeItemData.itemName}을(를) 사용하시겠습니까?", 
+                    $"{consumeItemData.itemName}을(를) 사용하시겠습니까?",
                     () => {
                         if (inventory.UseItem(consumeItemData))
                         {
