@@ -60,13 +60,13 @@ public class ItemPopupManager : MonoBehaviour
         });
     }
 
-    public void CantInterect()
+    public void CantInterect(string message)
     {
         if (confirmPanel == null) return; 
 
         confirmPanel.SetActive(true);
 
-        confirmText.text = "무언갈 할수 없다"; //일단 임시로 이렇게 해두긴 했는데 나중에 바꿔도 됨
+        confirmText.text = message;
 
         Time.timeScale = 0f;
 
