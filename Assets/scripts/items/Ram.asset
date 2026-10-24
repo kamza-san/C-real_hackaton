@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2227ed4e036997c4684a3742df866c73, type: 3}
   m_Name: Ram
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  image: {fileID: 0}
-  itemName: 
-  explain: 
+  image: {fileID: -8224449061652494951, guid: 9f0b3638cb710aa4aa7468b6d7e235dd, type: 3}
+  itemName: "\uB818"
+  explain: "\uC640 \uB818 \uC544\uC2DC\uB294\uAD6C\uB098! \uC9C4\uC9DC \uAC81\uB098
+    \uBE44\uC309\uB2C8\uB2E4..."

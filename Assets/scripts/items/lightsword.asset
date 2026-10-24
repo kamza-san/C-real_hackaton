@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2227ed4e036997c4684a3742df866c73, type: 3}
   m_Name: lightsword
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  id: 1
   image: {fileID: 905024258411163469, guid: bf64c081ba95be740a2bc1c85d5266ce, type: 3}
   itemName: "\uAD11\uC120\uAC80"
-  explain: "\uCD5C\uAC15\uC758 \uC808\uC0AD\uB825\uC744 \uC790\uB791\uD569\uB2C8\uB2E4"
+  explain: "\uC544\uC784 \uC720\uC5B4 \uD30C\uB354"
