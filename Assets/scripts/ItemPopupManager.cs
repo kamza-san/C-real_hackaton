@@ -38,6 +38,7 @@ public class ItemPopupManager : MonoBehaviour
         if (confirmPanel == null) return;
 
         confirmPanel.SetActive(true);
+        noButton.gameObject.SetActive(true); // 밑에 함수에서 no 버튼 보이는걸 false로 해놔서 혹시 몰라서 해둠
         if (confirmText != null)
         {
             confirmText.text = message;
@@ -57,6 +58,27 @@ public class ItemPopupManager : MonoBehaviour
         noButton.onClick.AddListener(() => {
             CloseConfirm(); 
         });
+    }
+
+    public void CantInterect()
+    {
+        if (confirmPanel == null) return; 
+
+        confirmPanel.SetActive(true);
+
+        confirmText.text = "무언갈 할수 없다"; //일단 임시로 이렇게 해두긴 했는데 나중에 바꿔도 됨
+
+        Time.timeScale = 0f;
+
+        yesButton.onClick.RemoveAllListeners();
+        noButton.onClick.RemoveAllListeners();
+
+        yesButton.onClick.AddListener(() =>
+        {
+            CloseConfirm();
+        });
+
+        noButton.gameObject.SetActive(false); // no버튼 숨기는거
     }
 
     public void CloseConfirm()
