@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2227ed4e036997c4684a3742df866c73, type: 3}
   m_Name: hammer
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  image: {fileID: 0}
+  image: {fileID: -8328203247996275568, guid: af9580a13140780479c177f0fed40e6d, type: 3}
   itemName: "\uB9DD\uCE58"
   explain: Made In China

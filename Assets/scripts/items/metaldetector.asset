@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2227ed4e036997c4684a3742df866c73, type: 3}
   m_Name: metaldetector
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  image: {fileID: 0}
+  image: {fileID: -262108834630032882, guid: 7cede9321afee024c86e7e64eff5478d, type: 3}
   itemName: "\uAE08\uC18D\uD0D0\uC9C0\uAE30"
   explain: "\uAE08\uC18D\uC740 \uBB50\uB4E0\uC9C0 \uAC10\uC9C0\uD569\uB2C8\uB2E4."

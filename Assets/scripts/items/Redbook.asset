@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2227ed4e036997c4684a3742df866c73, type: 3}
   m_Name: Redbook
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  image: {fileID: 0}
+  image: {fileID: 2053858928696344379, guid: 7c5d16c795222ac44b29aa8c37398d9e, type: 3}
   itemName: "\uBE68\uAC04\uCC45"
   explain: "(\uCF54\uBBF8\uAEBC)"

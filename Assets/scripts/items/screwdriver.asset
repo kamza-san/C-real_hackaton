@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2227ed4e036997c4684a3742df866c73, type: 3}
   m_Name: screwdriver
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  image: {fileID: 0}
+  image: {fileID: 2648297945489299766, guid: 4210a95402baaf0408af9d981989ebee, type: 3}
   itemName: "\uB4DC\uB77C\uC774\uBC84"
   explain: "\uC720\uC0AC\uC2DC \uD638\uC2E0\uC6A9\uC73C\uB85C \uC0AC\uC6A9 \uAC00\uB2A5\uD569\uB2C8\uB2E4."
