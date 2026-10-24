@@ -44,7 +44,6 @@ public class PlayerInteract : MonoBehaviour
         {
             ItemTable itemTable = col.GetComponent<ItemTable>();
             
-            // [수정] 단순 상호작용 여부뿐만 아니라, 아이템 소지 여부까지 포함한 CanInteract 검사
             if (itemTable != null && itemTable.CanInteract(playerInventory))
             {
                 float distance = Vector2.Distance(transform.position, col.transform.position);

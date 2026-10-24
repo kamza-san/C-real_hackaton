@@ -33,8 +33,6 @@ public class ItemPopupManager : MonoBehaviour
             confirmPanel.SetActive(false);
         }
     }
-
-    // "사용하시겠습니까?" 확인창 띄우기
     public void ShowConfirm(string message, Action onYes)
     {
         if (confirmPanel == null) return;
@@ -61,7 +59,6 @@ public class ItemPopupManager : MonoBehaviour
         });
     }
 
-    // 팝업창 닫기
     public void CloseConfirm()
     {
         if (confirmPanel != null)

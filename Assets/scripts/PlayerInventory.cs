@@ -10,7 +10,6 @@ public class PlayerInventory : MonoBehaviour
     public void AddItem(ItemData newItem)
     {
         items.Add(newItem);
-        Debug.Log($"획득: {newItem.itemName}");
     
         if (inventoryUI != null)
         {

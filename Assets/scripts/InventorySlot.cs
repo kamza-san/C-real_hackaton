@@ -40,7 +40,6 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         if (currentItem != null && ui != null)
         {
-            Debug.Log($"[InventorySlot] 마우스 오버: {currentItem.itemName}");
             ui.ShowTooltip(currentItem, transform.position);
         }
     }
