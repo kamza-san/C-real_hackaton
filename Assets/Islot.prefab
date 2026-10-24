@@ -201,3 +201,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
   iconImage: {fileID: 3596022992260092790}
+  slotBackground: {fileID: 8749830660372947893}
