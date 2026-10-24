@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerInventory : MonoBehaviour
 {
     // [싱글톤 인스턴스]
-    public static PlayerInventory Instance { get; private set; }
+    public static PlayerInventory Instance { get; set; }
 
     public List<ItemData> items = new List<ItemData>(); 
 
