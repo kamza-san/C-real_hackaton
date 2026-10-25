@@ -49,13 +49,11 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         if (PlayerInventory.Instance.selectItem == currentItem)
         {
             PlayerInventory.Instance.selectItem = null;
-            Debug.Log("아이템 선택 해제");
         }
         // 2. 다른 아이템이거나 아무것도 안 골랐던 경우 -> 새로운 아이템으로 선택
         else
         {
             PlayerInventory.Instance.selectItem = currentItem;
-            Debug.Log($"아이템 선택됨: {currentItem.itemName}");
         }
 
         // 인벤토리 전체 슬롯들의 시각적 효과(테두리 등) 갱신을 위해 UI 전체 새로고침
