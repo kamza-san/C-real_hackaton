@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   image: {fileID: 6791817249930038189, guid: 296f4ad319a211f459614b40cf2808dd, type: 3}
   itemName: "\uC2DC\uACD7\uBC14\uB298"
-  explain: "\uC601\uC5B4 \uC774\uB984\uC774 \uC880 \uD2B9\uC774\uD558\uC2DC\uB2E4"
+  explain: "\uC587\uACE0 \uBFB0\uC871\uD558\uC5EC \uC5F4\uC1E0\uB300\uC6A9\uC73C\uB85C
+    \uC4F8 \uC218 \uC788\uC744 \uAC83 \uAC19\uB2E4."
+  hidden: 0

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2227ed4e036997c4684a3742df866c73, type: 3}
   m_Name: flashlight
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  image: {fileID: -3453778211126850748, guid: 29fb4e7845ed9014eb6df13c23c90638, type: 3}
+  image: {fileID: -1417163343136142315, guid: 55bbb1b852a114040a5e4d014d29a357, type: 3}
   itemName: "\uC190\uC804\uB4F1"
-  explain: "\uC2FC\uB370 \uBE44\uC2B7\uD55C \uC131\uB2A5\uC744 \uC790\uB791\uD569\uB2C8\uB2E4."
+  explain: "\uC5B4\uB518\uAC00\uC758 \uC548\uCABD\uC744 \uBCFC \uC218 \uC788\uC744\uAC70\uAC19\uB2E4."
+  hidden: 0

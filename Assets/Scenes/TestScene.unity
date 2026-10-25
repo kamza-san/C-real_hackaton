@@ -844,6 +844,7 @@ GameObject:
   - component: {fileID: 181213477}
   - component: {fileID: 181213478}
   - component: {fileID: 181213479}
+  - component: {fileID: 1204558375}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -970,8 +971,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0.8773585, b: 0.85981137, a: 1}
+  m_Sprite: {fileID: 6114274989541170273, guid: 12f19c409fc6a0848b8802e142ed08ca, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5863,3 +5864,33 @@ SceneRoots:
   - {fileID: 1481148509}
   - {fileID: 1527150819}
   - {fileID: 126641588}
+--- !u!114 &1204558375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181213471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f79b5080817932441923005f350f1d41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimator
+  frames:
+  - {fileID: 6114274989541170273, guid: 12f19c409fc6a0848b8802e142ed08ca, type: 3}
+  - {fileID: 7654817265639945517, guid: 12f19c409fc6a0848b8802e142ed08ca, type: 3}
+  - {fileID: -5412678811168513416, guid: 12f19c409fc6a0848b8802e142ed08ca, type: 3}
+  - {fileID: 3264304496783934581, guid: 12f19c409fc6a0848b8802e142ed08ca, type: 3}
+  - {fileID: 7302439276986877357, guid: 12f19c409fc6a0848b8802e142ed08ca, type: 3}
+  - {fileID: 1029237108366000031, guid: 12f19c409fc6a0848b8802e142ed08ca, type: 3}
+  - {fileID: -451049713728112777, guid: 12f19c409fc6a0848b8802e142ed08ca, type: 3}
+  - {fileID: 5225764746098209335, guid: 12f19c409fc6a0848b8802e142ed08ca, type: 3}
+  - {fileID: 8849124122243001883, guid: 12f19c409fc6a0848b8802e142ed08ca, type: 3}
+  - {fileID: 1382991874342633656, guid: 12f19c409fc6a0848b8802e142ed08ca, type: 3}
+  - {fileID: 2511772820720762172, guid: 12f19c409fc6a0848b8802e142ed08ca, type: 3}
+  - {fileID: -2185862490854855892, guid: 12f19c409fc6a0848b8802e142ed08ca, type: 3}
+  - {fileID: 8981030449613119661, guid: 12f19c409fc6a0848b8802e142ed08ca, type: 3}
+  - {fileID: 6596086724369741009, guid: 12f19c409fc6a0848b8802e142ed08ca, type: 3}
+  - {fileID: -3609832313169118752, guid: 12f19c409fc6a0848b8802e142ed08ca, type: 3}
+  - {fileID: -9016966673899053369, guid: 12f19c409fc6a0848b8802e142ed08ca, type: 3}
+  framesPerSecond: 8

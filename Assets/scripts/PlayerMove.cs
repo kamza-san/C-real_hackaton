@@ -9,6 +9,7 @@ public class PlayerMove : MonoBehaviour
     
     private Rigidbody2D rb;
     private Vector2 moveDir;
+    public Vector2 MoveDir => moveDir;
 
     private void Awake()
     {
