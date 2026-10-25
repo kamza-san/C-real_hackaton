@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2227ed4e036997c4684a3742df866c73, type: 3}
+  m_Name: hands of a clock
+  m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  image: {fileID: 6791817249930038189, guid: 296f4ad319a211f459614b40cf2808dd, type: 3}
+  itemName: "\uC2DC\uACD7\uBC14\uB298"
+  explain: "\uC601\uC5B4 \uC774\uB984\uC774 \uC880 \uD2B9\uC774\uD558\uC2DC\uB2E4"

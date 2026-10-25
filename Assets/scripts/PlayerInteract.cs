@@ -84,6 +84,7 @@ public class PlayerInteract : MonoBehaviour
 
     public void OnInteract(InputValue value)
     {
+        if (LoopManager.IsEnding || Time.timeScale == 0f) return;
         if (value.isPressed && currentItemTable != null)
         {
             currentItemTable.Interact(gameObject);

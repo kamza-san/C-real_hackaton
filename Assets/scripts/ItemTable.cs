@@ -9,37 +9,63 @@ public class ItemTable : MonoBehaviour, IInteractable
     [SerializeField] private ItemData consumeItemData;
     [SerializeField] private string hintText;
 
+    [SerializeField] private bool skipconfirm;
+
     public bool isInteracted = false;
 
     public event Action OnInteracted;
+
+    private bool doneInPreviousLoop;
+
+    private void Awake()
+    {
+        // 이 루프가 시작될 때의 기록만 읽음 (이번 루프에서 해결한 건 포함되지 않음)
+        doneInPreviousLoop = LoopManager.IsDone(gameObject.name);
+    }
 
     public bool CanInteract(PlayerInventory inventory)
     {
         if (isInteracted) return false;
         if (PlayerInventory.Instance == null) return false;
-        
+
         return true;
+    }
+
+    // 소모 아이템을 사용할 준비가 됐는지
+    // 일반 아이템: 손에 들고(selectItem) 있어야 함
+    // 숨김 아이템: UI에 보이지 않아 선택할 수 없으니 갖고만 있으면 됨
+    private bool HasConsumeItemReady(PlayerInventory inventory)
+    {
+        if (consumeItemData.hidden)
+        {
+            return inventory.items.Contains(consumeItemData);
+        }
+        return inventory.selectItem == consumeItemData;
     }
 
     public void Interact(GameObject player)
     {
-        // 1. GetComponent 대신 싱글톤 패턴 활용
         PlayerInventory inventory = PlayerInventory.Instance;
         if (inventory == null || !CanInteract(inventory)) return;
 
-        // 2. 소모할 아이템이 필요한데, 플레이어가 "손에 들고(selectItem) 있지 않은" 경우
-        // (인벤토리에 있더라도 선택하지 않았으면 상호작용 실패 처리)
-        if (consumeItemData != null && inventory.selectItem != consumeItemData)
+        // 이전 루프에서 해결한 적 있으면 소모 아이템, 힌트, 확인창 없이 바로 실행
+        if (doneInPreviousLoop)
+        {
+            ExecuteInteraction(inventory);
+            return;
+        }
+
+        // 1. 소모할 아이템이 필요한데, 사용할 준비가 안 된 경우 -> 힌트 팝업
+        if (consumeItemData != null && !HasConsumeItemReady(inventory))
         {
             if (ItemPopupManager.Instance != null)
             {
-                // 아이템이 없거나 들고있지 않을 때 힌트 팝업
                 ItemPopupManager.Instance.CantInterect(hintText);
             }
             return;
         }
 
-        // 3. 소모할 아이템은 없는데(null), hintText에 메시지가 적혀있는 경우 -> 예/아니오 팝업
+        // 2. 소모할 아이템은 없는데(null), hintText가 있는 경우 -> 예/아니오 팝업
         if (consumeItemData == null && !string.IsNullOrEmpty(hintText))
         {
             if (ItemPopupManager.Instance != null)
@@ -47,7 +73,6 @@ public class ItemTable : MonoBehaviour, IInteractable
                 ItemPopupManager.Instance.ShowConfirm(
                     hintText,
                     () => {
-                        // [예] 버튼을 눌렀을 때 상호작용 실행
                         ExecuteInteraction(inventory);
                     }
                 );
@@ -55,15 +80,24 @@ public class ItemTable : MonoBehaviour, IInteractable
             return;
         }
 
-        // 4. 정상적으로 소모할 아이템을 "손에 들고" 있는 경우 (확인 팝업)
+        // 3. 소모할 아이템을 사용할 준비가 된 경우
         if (consumeItemData != null)
         {
+            if (skipconfirm)
+            {
+                if (inventory.UseItem(consumeItemData))
+                {
+                    ExecuteInteraction(inventory);
+                }
+                return;
+            }
+
             if (ItemPopupManager.Instance != null)
             {
                 ItemPopupManager.Instance.ShowConfirm(
                     $"{consumeItemData.itemName}을(를) 사용하시겠습니까?",
                     () => {
-                        // UseItem 호출 시 인벤토리에서 소모하고 selectItem도 null로 알아서 초기화 됨
+                        // UseItem이 인벤토리에서 소모하고 selectItem도 null로 초기화함
                         if (inventory.UseItem(consumeItemData))
                         {
                             ExecuteInteraction(inventory);
@@ -74,7 +108,7 @@ public class ItemTable : MonoBehaviour, IInteractable
         }
         else
         {
-            // 5. 소모할 아이템도 없고 hintText도 없다면 곧바로 상호작용 실행
+            // 4. 소모할 아이템도 없고 hintText도 없다면 곧바로 상호작용 실행
             ExecuteInteraction(inventory);
         }
     }
@@ -87,6 +121,7 @@ public class ItemTable : MonoBehaviour, IInteractable
         }
 
         isInteracted = true;
+        LoopManager.MarkDone(gameObject.name);
 
         OnInteracted?.Invoke();
 
