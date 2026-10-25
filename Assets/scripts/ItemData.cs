@@ -7,4 +7,5 @@ public class ItemData : ScriptableObject
     public string itemName; 
     [TextArea]
     public string explain;
+    public bool hidden;
 }

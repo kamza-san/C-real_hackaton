@@ -11,6 +11,8 @@ public class PlayerInventory : MonoBehaviour
     public InventoryUI inventoryUI; 
     public ItemData selectItem = null;
 
+    public static event System.Action<ItemData> OnItemAdded;
+
     private void Awake()
     {
         if (Instance == null)
@@ -31,6 +33,8 @@ public class PlayerInventory : MonoBehaviour
         {
             inventoryUI.RefreshUI();
         }
+
+        OnItemAdded?.Invoke(newItem);
     }
 
     public bool UseItem(ItemData targetItem)

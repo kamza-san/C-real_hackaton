@@ -9,9 +9,21 @@ public class ItemTable : MonoBehaviour, IInteractable
     [SerializeField] private ItemData consumeItemData;
     [SerializeField] private string hintText;
 
+    [SerializeField] private bool skipconfirm;
+
     public bool isInteracted = false;
 
     public event Action OnInteracted;
+
+    private bool doneInPreviousLoop;
+
+
+    private void Awake()
+    {
+        // 이 루프가 시작될 때의 기록만 읽음 (이번 루프에서 해결한 건 포함되지 않음)
+        doneInPreviousLoop = LoopManager.IsDone(gameObject.name);
+        Debug.Log($"[Awake] {gameObject.name} / 이전 루프 기록: {doneInPreviousLoop}", this);
+    }
 
     public bool CanInteract(PlayerInventory inventory)
     {
@@ -23,8 +35,19 @@ public class ItemTable : MonoBehaviour, IInteractable
 
     public void Interact(GameObject player)
     {
+
+        
         PlayerInventory inventory = player.GetComponent<PlayerInventory>();
+
+        
         if (inventory == null || !CanInteract(inventory)) return;
+
+
+        if (doneInPreviousLoop)
+        {
+            ExecuteInteraction(inventory);
+            return;
+        }
 
         // 1. 소모할 아이템이 필요한데, 플레이어 인벤토리에 없는 경우
         if (consumeItemData != null && !inventory.items.Contains(consumeItemData))
@@ -56,6 +79,15 @@ public class ItemTable : MonoBehaviour, IInteractable
         // 3. 정상적으로 소모할 아이템이 존재하여 사용하는 경우 (확인 팝업)
         if (consumeItemData != null)
         {
+            if (skipconfirm)
+            {
+                if (inventory.UseItem(consumeItemData))
+                {
+                    ExecuteInteraction(inventory);
+                }
+                return;
+            }
+
             if (ItemPopupManager.Instance != null)
             {
                 ItemPopupManager.Instance.ShowConfirm(
@@ -84,6 +116,8 @@ public class ItemTable : MonoBehaviour, IInteractable
         }
 
         isInteracted = true;
+        LoopManager.MarkDone(gameObject.name);
+        Debug.Log($"[기록됨] {gameObject.name}", this);
 
         OnInteracted?.Invoke();
 

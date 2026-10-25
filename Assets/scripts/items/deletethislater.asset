@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2227ed4e036997c4684a3742df866c73, type: 3}
   m_Name: deletethislater
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  image: {fileID: 5400805526723383535, guid: 2ac06b373553e4b49b79e59175f1a789, type: 3}
+  image: {fileID: 0}
   itemName: "\uC544\uC774\uACE0"
   explain: "\uC77C\uB2E8 \uC774\uB807\uAC8C \uD574\uB193\uC558\uC2B5\uB2C8\uB2E4"
+  hidden: 1

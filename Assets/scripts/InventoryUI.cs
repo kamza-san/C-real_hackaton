@@ -17,6 +17,8 @@ public class InventoryUI : MonoBehaviour
 
     private void Start()
     {
+        playerInventory = PlayerInventory.Instance;
+
         if (tooltipPanel != null)
         {
             CanvasGroup cg = tooltipPanel.GetComponent<CanvasGroup>();
@@ -44,6 +46,7 @@ public void RefreshUI()
 
         foreach (ItemData item in playerInventory.items)
         {
+            if (item.hidden) continue;
             GameObject newSlot = Instantiate(slotPrefab, slotContainer);
             newSlot.transform.localScale = Vector3.one;
             newSlot.transform.localPosition = Vector3.zero;

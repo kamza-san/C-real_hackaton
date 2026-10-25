@@ -568,6 +568,7 @@ MonoBehaviour:
   consumeItemData: {fileID: 11400000, guid: 1c71e88a653cdc641b1f0370309760a4, type: 2}
   hintText: "\uCE68\uB300 \uBC11\uC5D0 \uC2DC\uACC4 \uCD08\uCE68\uC774 \uC788\uB2E4
     \uC587\uACE0 \uBFB0\uC871\uD558\uB2E4\u2026"
+  skipconfirm: 1
   isInteracted: 0
 --- !u!61 &126641586
 BoxCollider2D:
@@ -1087,6 +1088,7 @@ GameObject:
   - component: {fileID: 300585211}
   - component: {fileID: 300585214}
   - component: {fileID: 300585215}
+  - component: {fileID: 300585216}
   m_Layer: 8
   m_Name: placeholder(musicbox)
   m_TagString: Untagged
@@ -1110,7 +1112,7 @@ AudioSource:
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
-  Mute: 1
+  Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -1327,7 +1329,21 @@ MonoBehaviour:
   giveItemData: {fileID: 11400000, guid: 1c71e88a653cdc641b1f0370309760a4, type: 2}
   consumeItemData: {fileID: 0}
   hintText: 
+  skipconfirm: 0
   isInteracted: 0
+--- !u!114 &300585216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300585210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4344d488db4763446b100482358789a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MusicBox
+  audioSource: {fileID: 0}
 --- !u!1 &312550603
 GameObject:
   m_ObjectHideFlags: 0
@@ -1365,6 +1381,7 @@ MonoBehaviour:
   hintText: "\uC758\uC790 \uBC11\uC5D0 \uAE08\uC18D \uD0D0\uC9C0\uAE30\uAC00 \uC788\uB2E4
     \uC774\uAC78\uB85C \uBB34\uC5B8\uAC00 \uC4F8\uB9CC\uD55C\uAC78 \uCC3E\uC744 \uC218
     \uC788\uC9C0 \uC54A\uC744\uAE4C?"
+  skipconfirm: 0
   isInteracted: 0
 --- !u!61 &312550605
 BoxCollider2D:
@@ -2071,6 +2088,7 @@ MonoBehaviour:
   giveItemData: {fileID: 11400000, guid: 67c2ecac473a6bc42ad875a104f23526, type: 2}
   consumeItemData: {fileID: 0}
   hintText: 
+  skipconfirm: 0
   isInteracted: 0
 --- !u!61 &696502393
 BoxCollider2D:
@@ -2582,6 +2600,7 @@ MonoBehaviour:
   giveItemData: {fileID: 0}
   consumeItemData: {fileID: 11400000, guid: 2b14a7bd92b787044b1a3d042a629281, type: 2}
   hintText: "\uC7A0\uACA8\uC788\uB2E4"
+  skipconfirm: 0
   isInteracted: 0
 --- !u!61 &787563875
 BoxCollider2D:
@@ -2739,6 +2758,7 @@ MonoBehaviour:
   giveItemData: {fileID: 11400000, guid: 0295ae251c2a15c4885c5407aee9bce6, type: 2}
   consumeItemData: {fileID: 11400000, guid: 07df94934e5d7884990df83688bada9e, type: 2}
   hintText: "\uC7A0\uACA8\uC788\uB294 \uC11C\uB78D\uC774 \uC788\uB2E4"
+  skipconfirm: 0
   isInteracted: 0
 --- !u!61 &810425592
 BoxCollider2D:
@@ -2895,6 +2915,7 @@ MonoBehaviour:
   giveItemData: {fileID: 11400000, guid: 765f8f17b8374fd488402300866454f6, type: 2}
   consumeItemData: {fileID: 0}
   hintText: 
+  skipconfirm: 0
   isInteracted: 0
 --- !u!61 &931087914
 BoxCollider2D:
@@ -3442,6 +3463,7 @@ MonoBehaviour:
   giveItemData: {fileID: 11400000, guid: d471c78ca4386414bac5ff6315debfac, type: 2}
   consumeItemData: {fileID: 11400000, guid: 5559ace85f0e6d84eb3ba6356133c7fb, type: 2}
   hintText: "\uBA54\uC774\uB4DC \uC778 \uD5E4\uBE10"
+  skipconfirm: 0
   isInteracted: 0
 --- !u!61 &1224867993
 BoxCollider2D:
@@ -4265,6 +4287,163 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &1481148505
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1481148509}
+  - component: {fileID: 1481148508}
+  - component: {fileID: 1481148507}
+  - component: {fileID: 1481148506}
+  m_Layer: 8
+  m_Name: placeholder(chair) (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1481148506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481148505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ca48fa2f29917642aba474e9feed494, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemTable
+  ifdestroy: 0
+  giveItemData: {fileID: 0}
+  consumeItemData: {fileID: 11400000, guid: 2596302307cb25e4fbe8f8e821fff506, type: 2}
+  hintText: "\uC7A0\uACA8\uC788\uB2E4"
+  skipconfirm: 0
+  isInteracted: 0
+--- !u!61 &1481148507
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481148505}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!212 &1481148508
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481148505}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Color: {r: 0.21509439, g: 0.19175868, b: 0.1846565, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 0
+--- !u!4 &1481148509
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481148505}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13.7543, y: 0.55, z: 0}
+  m_LocalScale: {x: 1.272105, y: 3.131454, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1527150815
 GameObject:
   m_ObjectHideFlags: 0
@@ -4301,6 +4480,7 @@ MonoBehaviour:
   consumeItemData: {fileID: 11400000, guid: d471c78ca4386414bac5ff6315debfac, type: 2}
   hintText: "\uC5B4\uB9B0 \uC2DC\uC808 \uBCF4\uB358 TV\uC640 \uB611\uAC19\uC774 \uC0DD\uACBC\uB2E4
     \uC9C0\uAE08 \uBCF4\uB2C8 \uB108\uBB34 \uD070 \uAC83 \uAC19\uB2E4"
+  skipconfirm: 0
   isInteracted: 0
 --- !u!61 &1527150817
 BoxCollider2D:
@@ -4647,6 +4827,7 @@ MonoBehaviour:
   giveItemData: {fileID: 11400000, guid: 4d70c61041b065e458f52c9ec4bacdb5, type: 2}
   consumeItemData: {fileID: 0}
   hintText: "\uBB50\uC784\uC774\uAC70"
+  skipconfirm: 0
   isInteracted: 0
 --- !u!61 &1743793118
 BoxCollider2D:
@@ -5023,6 +5204,7 @@ MonoBehaviour:
   giveItemData: {fileID: 11400000, guid: 5559ace85f0e6d84eb3ba6356133c7fb, type: 2}
   consumeItemData: {fileID: 11400000, guid: 0295ae251c2a15c4885c5407aee9bce6, type: 2}
   hintText: "\uCC45\uC7A5\uC774\uB2E4"
+  skipconfirm: 0
   isInteracted: 0
 --- !u!61 &1990479069
 BoxCollider2D:
@@ -5391,6 +5573,7 @@ MonoBehaviour:
   giveItemData: {fileID: 11400000, guid: 2b14a7bd92b787044b1a3d042a629281, type: 2}
   consumeItemData: {fileID: 0}
   hintText: 
+  skipconfirm: 0
   isInteracted: 0
 --- !u!61 &2045407663
 BoxCollider2D:
@@ -5677,5 +5860,6 @@ SceneRoots:
   - {fileID: 1990479071}
   - {fileID: 1224867995}
   - {fileID: 312550607}
+  - {fileID: 1481148509}
   - {fileID: 1527150819}
   - {fileID: 126641588}
